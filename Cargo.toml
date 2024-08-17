@@ -1,7 +1,11 @@
 [package]
-name = "sextant-rs"
+name = "sextant"
 version = "0.1.0"
 edition = "2021"
+authors = ["linuskmr <linuskmr.dev@gmail.com>"]
+description = "Calculating the geographic position (latitude, longitude) on the Earth's surface using a sextant measurement."
+keywords = ["sextant", "celestial navigation"]
+license = "AGPL-3.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
