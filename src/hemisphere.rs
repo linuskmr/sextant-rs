@@ -1,13 +1,15 @@
+//! Hemisphere of latitudes (i.e. northern or southern) and longitudes (i.e. eastern or western).
+
 use std::fmt;
 
-/// Specifies the **north–south position** of a point on the Earth's surface.
+/// Northern or southern hemisphere.
 #[derive(Debug, Clone, PartialEq, PartialOrd)]
 pub enum Latitude {
     North,
     South,
 }
 
-/// Specifies the **east-west position** of a point on the Earth's surface.
+/// Eastern or western hemisphere.
 #[derive(Debug, Clone, PartialEq, PartialOrd)]
 pub enum Longitude {
     East,

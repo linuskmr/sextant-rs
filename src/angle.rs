@@ -1,6 +1,7 @@
-use core::fmt;
 use std::ops;
+use std::fmt;
 
+/// Specifies an angle in either degrees or radians.
 #[derive(Debug, Clone, Copy, PartialEq, PartialOrd)]
 pub enum Angle {
     Degrees(Degrees),
@@ -44,7 +45,7 @@ impl ops::Sub for Angle {
 }
 
 /// ```
-/// # use sextant_rs::angle::{Angle, Degrees};
+/// # use sextant::angle::{Angle, Degrees};
 /// Angle::from(Degrees(90.0));
 /// ```
 impl From<Degrees> for Angle {
@@ -54,7 +55,7 @@ impl From<Degrees> for Angle {
 }
 
 /// ```
-/// # use sextant_rs::angle::{Angle, Radians};
+/// # use sextant::angle::{Angle, Radians};
 /// Angle::from(Radians(std::f64::consts::PI));
 /// ```
 impl From<Radians> for Angle {
@@ -104,7 +105,7 @@ impl ops::Add for Radians {
 }
 
 /// ```
-/// # use sextant_rs::angle::{Angle, Degrees};
+/// # use sextant::angle::{Angle, Degrees};
 /// let degrees = Degrees(90.0);
 /// let angle = Angle::from(degrees);
 /// assert_eq!(Degrees::from(angle), degrees);
@@ -119,7 +120,7 @@ impl From<Angle> for Degrees {
 }
 
 /// ```
-/// # use sextant_rs::angle::{Angle, Radians};
+/// # use sextant::angle::{Angle, Radians};
 /// let radians = Radians(90.0);
 /// let angle = Angle::from(radians);
 /// assert_eq!(Radians::from(angle), radians);
@@ -134,7 +135,7 @@ impl From<Angle> for Radians {
 }
 
 /// ```
-/// # use sextant_rs::angle::{Degrees, Radians};
+/// # use sextant::angle::{Degrees, Radians};
 /// let radians = Radians::from(Degrees(90.0));
 /// assert_eq!(radians, Radians(std::f64::consts::PI / 2.0));
 /// ```
@@ -145,7 +146,7 @@ impl From<Radians> for Degrees {
 }
 
 /// ```
-/// # use sextant_rs::angle::{Degrees, Radians};
+/// # use sextant::angle::{Degrees, Radians};
 /// let degrees = Degrees::from(Radians(std::f64::consts::PI));
 /// assert_eq!(degrees, Degrees(180.0));
 /// ```
@@ -163,7 +164,7 @@ pub struct DegreeMinutesSeconds {
 }
 
 /// ```
-/// # use sextant_rs::angle::{Angle, Degrees, DegreeMinutesSeconds};
+/// # use sextant::angle::{Angle, Degrees, DegreeMinutesSeconds};
 /// let angle = Angle::from(Degrees(90.0));
 /// let expected_dms = DegreeMinutesSeconds { degrees: 90, minutes: 0, seconds: 0.0 };
 /// assert_eq!(DegreeMinutesSeconds::from(angle), expected_dms);
@@ -185,7 +186,7 @@ impl From<Angle> for DegreeMinutesSeconds {
 }
 
 /// ```
-/// # use sextant_rs::angle::{Angle, DegreeMinutesSeconds, Degrees};
+/// # use sextant::angle::{Angle, DegreeMinutesSeconds, Degrees};
 /// let dms = DegreeMinutesSeconds { degrees: 90, minutes: 0, seconds: 0.0 };
 /// assert_eq!(Angle::from(dms), Angle::from(Degrees(90.0)));
 /// ```
@@ -197,7 +198,7 @@ impl From<DegreeMinutesSeconds> for Angle {
 }
 
 /// ```
-/// # use sextant_rs::angle::DegreeMinutesSeconds;
+/// # use sextant::angle::DegreeMinutesSeconds;
 /// let dms = DegreeMinutesSeconds { degrees: 47, minutes: 12, seconds: 3.1 };
 /// assert_eq!(format!("{}", dms), "47°12'03\"");
 /// ```

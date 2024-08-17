@@ -7,11 +7,11 @@ use chrono::Datelike;
 ///
 /// # Example
 /// ```
-/// # use sextant_rs::sun_declination;
-/// # use sextant_rs::angle::Degrees;
+/// # use sextant::calculate_sun_declination;
+/// # use sextant::angle::Degrees;
 /// # use chrono::TimeZone;
 /// let date = chrono::Utc.with_ymd_and_hms(2022, 02, 12, 0, 0, 0).unwrap();
-/// assert_eq!(Degrees::from(sun_declination::calculate(date)), Degrees(-14.348736109751588));
+/// assert_eq!(Degrees::from(calculate_sun_declination(date)), Degrees(-14.348736109751588));
 /// ```
 pub fn calculate(date: chrono::DateTime<chrono::Utc>) -> Angle {
     let day_of_year = date.ordinal();
