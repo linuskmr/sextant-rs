@@ -7,7 +7,6 @@ description = "Calculating the geographic position (latitude, longitude) on the 
 keywords = ["sextant", "celestial navigation"]
 license = "AGPL-3.0"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 chrono = "0.4.38"

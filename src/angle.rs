@@ -1,3 +1,5 @@
+//! The difference in direction of two rays.
+
 use std::ops;
 use std::fmt;
 
@@ -64,9 +66,11 @@ impl From<Radians> for Angle {
     }
 }
 
+/// An [`Angle`] encoded as radians, i.e. 0 ≤ x ≤ 2π
 #[derive(Debug, Clone, Copy, PartialEq, PartialOrd)]
 pub struct Radians(pub f64);
 
+/// An [`Angle`] encoded as degrees, i.e. 0 ≤ x ≤ 360
 #[derive(Debug, Clone, Copy, PartialEq, PartialOrd)]
 pub struct Degrees(pub f64);
 
@@ -156,6 +160,7 @@ impl From<Degrees> for Radians {
     }
 }
 
+/// An angle encoded as degrees (`°`), minutes (`'`), and seconds (`"`).
 #[derive(Debug, Clone, Copy, PartialEq, PartialOrd)]
 pub struct DegreeMinutesSeconds {
     pub degrees: i32,

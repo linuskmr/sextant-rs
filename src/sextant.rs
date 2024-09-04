@@ -17,6 +17,11 @@ pub struct SextantMeasurement<Tz: chrono::TimeZone> {
 }
 
 impl<Tz: chrono::TimeZone> SextantMeasurement<Tz> {
+	/// Calculate the latitude of the observer.
+	/// 
+	/// # Example
+	/// 
+	/// See the [crate-level example](crate#example).
 	pub fn calculate_latitude(&self) -> coordinate::Latitude {
 		let corrected_elevation = self.elevation - self.index_error;
 		let sun_declination = sun_declination::calculate(self.culmination_time.with_timezone(&chrono::Utc));
@@ -30,6 +35,11 @@ impl<Tz: chrono::TimeZone> SextantMeasurement<Tz> {
 		coordinate::Latitude::new(latitude)
 	}
 
+	/// Calculate the longitude of the observer.
+	/// 
+	/// # Example
+	/// 
+	/// See the [crate-level example](crate#example).
 	pub fn calculate_longitude(&self) -> coordinate::Longitude {
 		let sun_peak_delta = self.culmination_time_prime_meridian.clone() - self.culmination_time.clone();
 		println!("sun_peak_delta={}", sun_peak_delta.num_minutes());

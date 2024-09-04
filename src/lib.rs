@@ -1,6 +1,4 @@
 #![doc = include_str!("../README.md")]
-//! sextant-calculator calculates the geographic position (latitude, longitude) on the Earth's surface using a sextant measurement.
-//! 
 //! # Example
 //! 
 //! ```
