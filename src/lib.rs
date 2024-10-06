@@ -14,19 +14,10 @@
 //! 		.and_local_timezone(timezone).unwrap()
 //! };
 //!
-//! let culmination_time_prime_meridian = {
-//! 	let hour = 60 * 60;
-//! 	let timezone = FixedOffset::east_opt(1 * hour).unwrap();
-//! 	culmination_time.date_naive() // Same date as measurement
-//! 		.and_hms_opt(13, 4, 45).unwrap()
-//! 		.and_local_timezone(timezone).unwrap()
-//! };
-//!
 //! let sextant_measurement = SextantMeasurement {
 //! 	culmination_time,
 //! 	elevation: Angle::from(DegreeMinutesSeconds { degrees: 53, minutes: 46, seconds: 0.0 }),
 //! 	index_error: Angle::from(DegreeMinutesSeconds { degrees: 0, minutes: 0, seconds: 0.0 }),
-//! 	culmination_time_prime_meridian,
 //! };
 //! 
 //! let expected_latitude = coordinate::Latitude::new(Angle::from(Degrees(49.014)));
@@ -45,6 +36,8 @@ pub mod coordinate;
 pub mod hemisphere;
 mod sextant;
 mod sun_declination;
+mod culmination;
 
 pub use sun_declination::calculate as calculate_sun_declination;
 pub use sextant::SextantMeasurement;
+pub use culmination::*;
