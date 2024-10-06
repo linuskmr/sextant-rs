@@ -16,7 +16,7 @@ pub fn culmination(lng: coordinate::Longitude, date: chrono::NaiveDate) -> chron
 	let fractional_year_y = ((2.0 * std::f64::consts::PI) / 365.0) * (date.ordinal() as f64 - 1.0);
 	let equation_of_time_in_minutes = 229.18 * (0.000075 + 0.001868 * fractional_year_y.cos() - 0.032077 * fractional_year_y.sin() - 0.014615 * (2.0*fractional_year_y).cos() - 0.040849 * (2.0*fractional_year_y).sin());
 	let solar_noon_in_minutes = 720.0 - 4.0 * Degrees::from(lng.raw_angle).0 - equation_of_time_in_minutes;
-	
+
 	let solar_noon_hour_fraction = solar_noon_in_minutes / 60.0;
 	let solar_noon_minute_fraction = solar_noon_hour_fraction.fract() * 60.0;
 	let solar_noon_seconds_fraction = solar_noon_minute_fraction.fract() * 60.0;
@@ -25,6 +25,7 @@ pub fn culmination(lng: coordinate::Longitude, date: chrono::NaiveDate) -> chron
 	let culmination_datetime = chrono::NaiveDateTime::new(date, culmination_time);
 	chrono::DateTime::from_naive_utc_and_offset(culmination_datetime, chrono::Utc)
 }
+
 
 /// Calculates the culmination for the prime meridian by forwarding the date to the `culmination` function.
 pub fn reference_culmination(date: chrono::NaiveDate) -> chrono::DateTime<chrono::Utc> {
