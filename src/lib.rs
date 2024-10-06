@@ -45,6 +45,8 @@ pub mod coordinate;
 pub mod hemisphere;
 mod sextant;
 mod sun_declination;
+mod culmination;
 
 pub use sun_declination::calculate as calculate_sun_declination;
 pub use sextant::SextantMeasurement;
+pub use culmination::culmination;
