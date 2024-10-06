@@ -49,4 +49,4 @@ mod culmination;
 
 pub use sun_declination::calculate as calculate_sun_declination;
 pub use sextant::SextantMeasurement;
-pub use culmination::culmination;
+pub use culmination::*;
