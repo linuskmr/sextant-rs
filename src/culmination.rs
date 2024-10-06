@@ -10,7 +10,7 @@ use crate::{angle::{Angle, Degrees}, coordinate};
 /// # use chrono::TimeZone;
 /// let lng = coordinate::Longitude::new(Angle::from(angle::Degrees(0.0)));
 /// let date = chrono::NaiveDate::from_ymd_opt(2024, 10, 6).unwrap();
-/// assert_eq!(culmination(lng, date), chrono::DateTime::from_naive_utc_and_offset(chrono::NaiveDate::from_ymd_opt(2024, 10, 6).unwrap().and_hms_opt(11, 47, 38).unwrap()), chrono::Utc);
+/// assert_eq!(culmination(lng, date), chrono::DateTime::<chrono::Utc>::from_naive_utc_and_offset(chrono::NaiveDate::from_ymd_opt(2024, 10, 6).unwrap().and_hms_opt(11, 47, 38).unwrap(), chrono::Utc));
 /// ```
 pub fn culmination(lng: coordinate::Longitude, date: chrono::NaiveDate) -> chrono::DateTime<chrono::Utc> {
 	let fractional_year_y = ((2.0 * std::f64::consts::PI) / 365.0) * (date.ordinal() as f64 - 1.0);

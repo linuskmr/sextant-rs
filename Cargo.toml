@@ -1,6 +1,6 @@
 [package]
 name = "sextant"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 authors = ["linuskmr <linuskmr.dev@gmail.com>"]
 description = "Calculating the geographic position (latitude, longitude) on the Earth's surface using a sextant measurement."
