@@ -170,8 +170,8 @@ pub struct DegreeMinutesSeconds {
 
 /// ```
 /// # use sextant::angle::{Angle, Degrees, DegreeMinutesSeconds};
-/// let angle = Angle::from(Degrees(90.0));
-/// let expected_dms = DegreeMinutesSeconds { degrees: 90, minutes: 0, seconds: 0.0 };
+/// let angle = Angle::from(Degrees(42.71));
+/// let expected_dms = DegreeMinutesSeconds { degrees: 42, minutes: 42, seconds: 36.00000000000307 };
 /// assert_eq!(DegreeMinutesSeconds::from(angle), expected_dms);
 /// ```
 impl From<Angle> for DegreeMinutesSeconds {
@@ -179,13 +179,14 @@ impl From<Angle> for DegreeMinutesSeconds {
         let degrees_float = Degrees::from(angle).0;
 
         let degrees = degrees_float.floor();
-        let minutes = (degrees_float - degrees).floor();
-        let seconds = degrees_float - degrees - minutes;
+        let minutes_float = (degrees_float - degrees) * 60.0;
+        let minutes = minutes_float.floor();
+        let seconds = (minutes_float - minutes) * 60.0;
 
         Self {
             degrees: degrees as i32,
-            minutes: (minutes * 60.0) as i32,
-            seconds: seconds * 3600.0,
+            minutes: minutes as i32,
+            seconds: seconds,
         }
     }
 }
